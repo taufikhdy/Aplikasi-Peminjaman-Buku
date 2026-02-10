@@ -19,9 +19,18 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+
+    public function pinjam(){
+        return $this->hasMany(Peminjaman::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
