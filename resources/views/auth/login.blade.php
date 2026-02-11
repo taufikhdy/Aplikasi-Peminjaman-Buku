@@ -16,7 +16,7 @@
             <p class="caption">Login untuk menggunakan aplikasi</p>
 
 
-            <form action="" method="post">
+            <form action="{{route('loginPost')}}" method="post">
                 @csrf
                 <div class="input">
                     <label for="username">Username</label>

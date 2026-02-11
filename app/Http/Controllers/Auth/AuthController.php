@@ -22,7 +22,7 @@ class AuthController extends Controller
         if(Auth::attempt($credential)){
             $request->session()->regenerate();
 
-            return match(Auth::user()->role) {
+            return match(Auth::user()->role->name) {
                 'admin' => redirect()->route('admin.dashboard'),
                 'member' => redirect()->route('member.dashboard'),
                 default => redirect('/dashboard')

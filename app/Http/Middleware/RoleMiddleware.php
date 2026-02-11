@@ -21,7 +21,7 @@ class RoleMiddleware
         }
 
         if(!in_array(Auth::user()->role->name, $roles)){
-            abort(403, 'Tidak Memiliki Akses'); 
+            abort(403, 'Tidak Memiliki Akses');
         }
         return $next($request);
     }
