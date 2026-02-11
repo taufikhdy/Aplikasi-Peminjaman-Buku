@@ -11,15 +11,19 @@ class Book extends Model
         'title',
         'author',
         'publisher',
-        'tahun',
-        'stock'
+        'tahun_terbit',
+        'cover'
     ];
 
-    public function categories(){
-        return $this->hasMany(Category::class);
+    public function formats(){
+        return $this->hasMany(BookFormat::class);
     }
 
-    public function peminjaman(){
-        return $this->hasMany(Peminjaman::class);
+    public function categories(){
+        return $this->belongsToMany(Category::class);
     }
+
+    // public function peminjaman(){
+    //     return $this->hasMany(Peminjaman::class);
+    // }
 }

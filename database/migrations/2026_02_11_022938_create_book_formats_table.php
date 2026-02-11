@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('book_formats', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('author');
-            $table->string('publisher')->nullable();
-            $table->year('tahun')->nullable();
-            $table->integer('stock')->default(0);
-            $table->string('cover')->nullable();
+            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
+            $table->enum('format_type', ['fisik', 'ebook']);
+            $table->integer('stock')->nullable();
+            $table->string('file_path')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('book_formats');
     }
 };
