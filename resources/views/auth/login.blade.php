@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Liberty</title>
     <link rel="stylesheet" href="{{ asset('styles/login.css') }}">
+    <link rel="stylesheet" href="{{asset('styles/utilities/animation.css')}}">
 </head>
 
 <body>
     <div class="body">
-        <div class="box">
+        <div class="box toTop">
             <h2>Welcome!</h2>
             <p class="caption">Login untuk menggunakan aplikasi</p>
 
